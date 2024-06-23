@@ -12,6 +12,9 @@
     .modal {
         left: 150%;
     }
+footer {
+    display: none;
+}
 </style>
 
     <div class="form-space">

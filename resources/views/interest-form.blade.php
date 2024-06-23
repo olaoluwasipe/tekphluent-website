@@ -47,6 +47,10 @@
     font-size: 1.1em;
     color: #fff;
 }
+
+footer {
+    display: none;
+}
 </style>
 
     <div class="form-space">
