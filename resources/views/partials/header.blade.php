@@ -38,7 +38,7 @@
         </div>
 
         <div class="cornermenu">
-            <a href="interest-form" class="cta-button">Get Started</a>
+            <a href="/interest-form" class="cta-button">Get Started</a>
 
             <a href="#" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
