@@ -5,6 +5,7 @@
         height: 100vh;
         overflow: hidden;
         background-image: url('../img/interest.png');
+        background-color: var(--color1);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
