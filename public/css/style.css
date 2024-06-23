@@ -1352,8 +1352,8 @@ nav.navbar .cornermenu .icon {
         width: 100vw;
     }
 
-    nav.navbar .icon {
-        display: flex;
+    nav.navbar .cornermenu .icon {
+        display: flex !important;
     }
 
     nav.navbar .navlinks {
