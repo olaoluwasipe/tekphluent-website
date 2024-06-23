@@ -10,34 +10,41 @@ class HomeController extends Controller
 {
     public function index () {
         $reviews = Review::all();
+        $pagetitle = "Home";
 
-        return view('home', compact('reviews'));
+        return view('home', compact('reviews', 'pagetitle'));
     }
 
     public function about () {
-        return view('about');
+        $pagetitle = "About Us";
+        return view('about', compact('pagetitle'));
     }
 
     public function why () {
-        return view('why');
+        $pagetitle = "Why Choose Us";
+        return view('why', compact('pagetitle'));
     }
 
     public function contact () {
-        return view('contact');
+        $pagetitle = "Contact Us";
+        return view('contact', compact('pagetitle'));
     }
 
     public function interestForm() {
+        $pagetitle = "Show Your Interest";
         $courses = Course::all();
-        return view('interest-form', compact('courses'));
+        return view('interest-form', compact('courses', 'pagetitle'));
     }
 
     public function reviewForm() {
+        $pagetitle = "Give Us A Review";
         $courses = Course::all();
-        return view('review', compact('courses'));
+        return view('review', compact('courses', 'pagetitle'));
     }
 
     public function course ($slug) {
         $course = Course::where('slug', $slug)->firstOrFail();
-        return view('course', compact('course'));
+        $pagetitle = ucwords($course->title);
+        return view('course', compact('course', 'pagetitle'));
     }
 }

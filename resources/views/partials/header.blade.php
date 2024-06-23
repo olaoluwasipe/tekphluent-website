@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekphluent</title>
+    <title>{{$pagetitle}} | Tekphluent</title>
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
 
     <!-- CSS -->
@@ -17,7 +17,7 @@
 
     <nav class="navbar">
 
-        <div class="logo"><img src="/img/favicon.png" alt="Tekphluent logo"></div>
+        <a href="/" class="logo"><img src="/img/favicon.png" alt="Tekphluent logo"></a>
 
         <div class="navlinks">
             <a href="/" class="active">Home</a>
@@ -31,11 +31,6 @@
                     @foreach ($courses as $course)
                         <a href="/course/{{$course->slug}}">{{$course->title}}</a>
                     @endforeach
-                    {{-- <a href="proj-mgt.php">Project Management and Business Analysis</a>
-                    <a href="cybersecurity.php">Cybersecurity</a>
-                    <a href="data-analysis.php">Data Analytics and Business Intelligence</a>
-                    <a href="fullstack.php">Fullstack</a>
-                    <a href="software-quality.php">Software Quality Assuarnce</a> --}}
                 </div>
             </div>
             <a href="/about">About Us</a>
