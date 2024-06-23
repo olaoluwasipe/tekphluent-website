@@ -1411,6 +1411,7 @@ nav.navbar .cornermenu .icon {
 
     footer {
         flex-direction: column;
+        padding: 80px 20px;
     }
 
     footer > * {
