@@ -1,7 +1,7 @@
 <footer>
 
     <div class="start">
-        <div class="logo"><img src="img/favicon.png" alt="logo"></div>
+        <div class="logo"><img src="/img/favicon.png" alt="logo"></div>
 
         <div class="emphasis">A reputable and certified academy you can kickstart your tech career</div>
 
@@ -65,9 +65,9 @@
 
 
 <!-- JAVASCRIPT -->
-<!-- JQUERY --><script src="plugins/jquery.min.js"></script>
+<!-- JQUERY --><script src="/plugins/jquery.min.js"></script>
 {{-- <!-- JQUERY --><script src="plugins/fontawesome.js"></script> --}}
-<!-- OWL CAROUSEL --><script src="plugins/owl.carousel.min.js"></script>
+<!-- OWL CAROUSEL --><script src="/plugins/owl.carousel.min.js"></script>
 
 
 <script>
@@ -85,4 +85,9 @@
             $(this).addClass('active');
         }
     });
+
+    $(".cornermenu .icon").on("click", function(e) {
+        e.preventDefault();
+        $("nav.navbar .navlinks").toggleClass("active")
+    })
 </script>

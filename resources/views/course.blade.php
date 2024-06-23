@@ -31,7 +31,7 @@
 
             <p>{{$course->description}}</p>
 
-            <a href="interest.php" class="cta-button">Start Learning</a>
+            <a href="{{route('interest-form')}}?course={{$course->id}}" class="cta-button">Start Learning</a>
 
         </div>
 

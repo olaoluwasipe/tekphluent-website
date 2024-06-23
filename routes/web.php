@@ -10,7 +10,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/why', [HomeController::class, 'why']);
 Route::get('/contact', [HomeController::class, 'contact']);
-Route::get('/interest-form', [HomeController::class, 'interestForm']);
+Route::get('/interest-form', [HomeController::class, 'interestForm'])->name('interest-form');
 Route::get('/course/{slug}', [HomeController::class, 'course']);
 Route::get('/review-form', [HomeController::class, 'reviewForm']);
 

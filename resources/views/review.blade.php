@@ -9,6 +9,9 @@
         background-position: center;
         background-repeat: no-repeat;
     }
+    .modal {
+        left: 150%;
+    }
 </style>
 
     <div class="form-space">
@@ -73,11 +76,8 @@
 
     </div>
 
-    <!-- JAVASCRIPT -->
-    <!-- JQUERY --><script src="/plugins/jquery.min.js"></script>
-    <!-- DEFAULT SCRIPT<script src="/js/index.js"></script> -->
-    <!-- FONTAWESOME --><script src="/plugins/fontawesome.js"></script>
-    <!-- OWL CAROUSEL --><script src="/plugins/owl.carousel.min.js"></script>
+
+    @include('partials.footer')
 
     <script>
 

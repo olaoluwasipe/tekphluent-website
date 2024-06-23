@@ -37,6 +37,12 @@
             <a href="/contact">Contact Us</a>
         </div>
 
-        <a href="interest-form" class="cta-button">Get Started</a>
+        <div class="cornermenu">
+            <a href="interest-form" class="cta-button">Get Started</a>
+
+            <a href="#" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>
 
     </nav>

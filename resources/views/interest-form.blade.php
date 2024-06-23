@@ -102,7 +102,7 @@
                 <label for="number">Course of Interest</label>
                 <select name="course_id" id="courseOfInterest" required>
                     @foreach ($courses as $course)
-                        <option value="{{$course->id}}">{{$course->title}}</option>
+                        <option value="{{$course->id}}" {{isset($_GET['course']) && $_GET['course'] == $course->id ? 'selected' : ''}}>{{$course->title}}</option>
                     @endforeach
                 </select>
             </div>
@@ -137,11 +137,7 @@
 
 
 
-    <!-- JAVASCRIPT -->
-    <!-- JQUERY --><script src="/plugins/jquery.min.js"></script>
-    <!-- DEFAULT SCRIPT<script src="/js/index.js"></script> -->
-    <!-- FONTAWESOME --><script src="/plugins/fontawesome.js"></script>
-    <!-- OWL CAROUSEL --><script src="/plugins/owl.carousel.min.js"></script>
+    @include('partials.footer')
 
     <script>
         $("#interest-form").on('submit', function(e) {
