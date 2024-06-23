@@ -1345,6 +1345,10 @@ nav.navbar .cornermenu .icon {
     display: none;
 }
 
+.model {
+    z-index: 50000
+}
+
 
 @media screen and (max-width: 1024px) {
     nav.navbar {
