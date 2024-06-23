@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Interest;
 use App\Http\Requests\StoreInterestRequest;
 use App\Http\Requests\UpdateInterestRequest;
+use Illuminate\Http\Request;
 
 class InterestController extends Controller
 {
@@ -27,9 +28,30 @@ class InterestController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreInterestRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'fullName' => ['required', 'max:255'],
+            'email' => ['required'],
+            'phoneNumber' => ['required'],
+            'country' => ['required'],
+            'agerange' => ['required'],
+            'course_id' => ['required'],
+            'courseDate' => ['required']
+        ]);
+
+        $course = Interest::create($validatedData);
+
+        if($course) {
+            $message = [
+                'success' => 'Thank you for showing interest, we would get back to you soon.'
+            ];
+        }else {
+            $message = [
+                'errors' => 'Please try again.'
+            ];
+        }
+        return response()->json($message);
     }
 
     /**

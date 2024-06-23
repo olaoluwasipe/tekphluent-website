@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class Course extends Model
@@ -11,7 +12,7 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 
+        'title',
         'slug',
         'course_outline',
         'image',
@@ -43,5 +44,13 @@ class Course extends Model
         }
 
         return $slug;
+    }
+
+    public function interest (): BelongsTo {
+        return $this->belongsTo(Interest::class, 'id', 'course_id');
+    }
+
+    public function review (): BelongsTo {
+        return $this->belongsTo(Review::class, 'id', 'course_id');
     }
 }

@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'fullName',
+        'course_id',
+        'courseDate',
+        'message'
+    ];
+
+
+    public function course () {
+        return $this->hasOne(Course::class, 'id', 'course_id');
+    }
 }

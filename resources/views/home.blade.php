@@ -48,24 +48,24 @@
     </section>
 
     @if (count($reviews) > 0)
+    <section class="testimonials">
+        <div class="header">What Our Students Say</div>
+        <div class="owl-carousel tests owltwo" id="owltwo">
         @foreach ($reviews as $review)
-        <section class="testimonials">
-            <div class="header">What Our Students Say</div>
-            <div class="owl-carousel tests owltwo" id="owltwo">
                 <div class="item testi">
                     <div class="icon"><i class="fas fa-quote-left-alt"></i></div>
-                    <p>' . $row['message'] . '</p>
+                    <p>{{$review->message}}</p>
                     <div class="user">
                         <div class="deets">
-                            <div class="name">' . $row['fullName'] . '</div>
-                            <div class="job">' . $row['courseOfInterest'] . '</div>
+                            <div class="name">{{$review->fullName}}</div>
+                            <div class="job">{{$review->course->title}}</div>
                         </div>
                     </div>
                     <div class="linker">Read more<i class="icon fas fa-arrow-right"></i></div>
                 </div>
-            </div>
-        </section>
         @endforeach
+        </div>
+    </section>
     @else
         <section class="testimonials">
             <div class="header">What Our Students Say</div>

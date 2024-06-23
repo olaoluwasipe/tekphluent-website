@@ -26,6 +26,16 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function interestForm() {
+        $courses = Course::all();
+        return view('interest-form', compact('courses'));
+    }
+
+    public function reviewForm() {
+        $courses = Course::all();
+        return view('review', compact('courses'));
+    }
+
     public function course ($slug) {
         $course = Course::where('slug', $slug)->firstOrFail();
         return view('course', compact('course'));

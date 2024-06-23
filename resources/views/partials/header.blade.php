@@ -13,7 +13,7 @@
 </head>
 
 
-<body>
+<body class="">
 
     <nav class="navbar">
 
@@ -42,6 +42,6 @@
             <a href="/contact">Contact Us</a>
         </div>
 
-        <a href="interest.php" class="cta-button">Get Started</a>
+        <a href="interest-form" class="cta-button">Get Started</a>
 
     </nav>
