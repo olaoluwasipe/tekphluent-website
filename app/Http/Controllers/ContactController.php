@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -38,6 +40,15 @@ class ContactController extends Controller
         ]);
 
         $course = Contact::create($validatedData);
+
+        $data = [
+            'name' => $request->input('fullName'),
+            'email' => $request->input('email'),
+            'phoneNumber' => $request->input('phoneNumber'),
+            'message' => $request->input('message'),
+        ];
+
+        Mail::to($data['email'])->send(new ContactMail($data));
 
         if($course) {
             $message = [
