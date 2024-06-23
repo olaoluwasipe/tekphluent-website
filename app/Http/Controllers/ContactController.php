@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\StoreContactRequest;
 use App\Http\Requests\UpdateContactRequest;
+use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -27,9 +28,27 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreContactRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'fullName' => ['required', 'max:255'],
+            'message' => ['required'],
+            'email' => ['required'],
+            'phoneNumber' => ['required']
+        ]);
+
+        $course = Contact::create($validatedData);
+
+        if($course) {
+            $message = [
+                'success' => 'Thank you for your message, we would reach out soon.'
+            ];
+        }else {
+            $message = [
+                'errors' => 'Please try again.'
+            ];
+        }
+        return response()->json($message);
     }
 
     /**

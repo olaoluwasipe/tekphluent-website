@@ -2,30 +2,33 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\InterestResource\Pages;
-use App\Filament\Resources\InterestResource\RelationManagers;
-use App\Models\Interest;
+use App\Filament\Resources\ContactResource\Pages;
+use App\Filament\Resources\ContactResource\RelationManagers;
+use App\Models\Contact;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class InterestResource extends Resource
+class ContactResource extends Resource
 {
     protected static ?string $recordTitleAttribute = 'fullName';
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['fullName', 'course.title', 'courseDate', 'phoneNumber'];
+        return ['fullName', 'phoneNumber', 'message'];
     }
 
-    protected static ?string $model = Interest::class;
+    protected static ?string $model = Contact::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-envelope';
 
     public static function form(Form $form): Form
     {
@@ -42,18 +45,9 @@ class InterestResource extends Resource
                     ->tel()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('country')
+                Forms\Components\Textarea::make('message')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('agerange')
-                    ->required()
-                    ->maxLength(255),
-                Select::make('course_id')
-                    ->relationship(name: 'course', titleAttribute: 'title')
-                    ->native(false),
-                Forms\Components\TextInput::make('courseDate')
-                    ->required()
-                    ->maxLength(255),
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -66,15 +60,6 @@ class InterestResource extends Resource
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phoneNumber')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('country')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('agerange')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('course.title')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('courseDate')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -90,6 +75,8 @@ class InterestResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                DeleteAction::make(),
+                ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -108,9 +95,20 @@ class InterestResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListInterests::route('/'),
-            'create' => Pages\CreateInterest::route('/create'),
-            'edit' => Pages\EditInterest::route('/{record}/edit'),
+            'index' => Pages\ListContacts::route('/'),
+            'create' => Pages\CreateContact::route('/create'),
+            'edit' => Pages\EditContact::route('/{record}/edit'),
         ];
+    }
+
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                TextEntry::make('fullName'),
+                TextEntry::make('phoneNumber'),
+                TextEntry::make('email'),
+                TextEntry::make('message'),
+            ]);
     }
 }

@@ -9,44 +9,6 @@
         background-position: center;
         background-repeat: no-repeat;
     }
-    .modal{
-    position: absolute;
-    z-index: 50;
-    top: 50%;
-    left: 150%;
-    transform: translate(-50%,-50%);
-    width: fit-content;
-    padding: 40px 5px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    text-align: center;
-    background-color: rgba(255,255,255,.2);
-    backdrop-filter: blur(10px);
-    transition: .3s;
-}
-
-.modal .icon{
-    width: 70px;
-    height: 70px;
-    border-radius: 50px;
-    border: 1px solid #D2F1EB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2em;
-    background-color: #E8F7F4;
-    color: #179980;
-}
-
-.modal p{
-    width: 70%;
-    font-size: 1.1em;
-    color: #fff;
-}
 </style>
 
     <div class="form-space">
@@ -161,24 +123,35 @@
                       }
 
                     }
+                },
+                error: function(error) {
+                    button.text('Submit')
+                    button.find('loader').remove()
+                    let errors = error.responseJSON;
+                    if(errors.errors.length < 2){
+                        displayErrors(error.message);
+                    }else {
+                        displayErrors(errors.errors)
+                    }
                 }
             })
         })
 
-        function displayErrors(errors) {
+        function displayErrors(error) {
+
+        // Clear any existing error messages
             const errorContainer = document.getElementById('errorContainer');
             errorContainer.innerHTML = '';
 
-            if (errors && typeof errors === 'object') {
-                for (const field in errors) {
-                const errorMessage = `<div class="error-message"> ${errors[field]}</div>`;
+            if (typeof error === 'object') {
+                for (const field in error) {
+                const errorMessage = `<div class="error-message"> ${error[field]}</div>`;
                 errorContainer.innerHTML += errorMessage;
                 }
             } else {
-                const errorMessage = `<div class="error-message">${errors}</div>`;
+                const errorMessage = `<div class="error-message">${error}</div>`;
                 errorContainer.innerHTML += errorMessage;
             }
-
         }
 
     </script>

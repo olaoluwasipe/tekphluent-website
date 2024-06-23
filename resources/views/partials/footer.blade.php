@@ -78,7 +78,6 @@
     // Loop through all navlink anchors
     $('.navlinks a').each(function() {
         var href = $(this).attr('href');
-        console.log(href, currentPath)
         href = href.split('?')[0]
         $(this).removeClass('active')
         // Check if the href matches the current path

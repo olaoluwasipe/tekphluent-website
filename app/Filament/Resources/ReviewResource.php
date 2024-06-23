@@ -16,9 +16,16 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ReviewResource extends Resource
 {
+    protected static ?string $recordTitleAttribute = 'fullName';
+
+    public static function getGloballySearchableAttributes(): array
+    {
+        return ['fullName', 'course.title', 'courseDate'];
+    }
+
     protected static ?string $model = Review::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-star';
 
     public static function form(Form $form): Form
     {

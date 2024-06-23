@@ -52,6 +52,8 @@
                     <input type="email" name="email" id="email" placeholder="Enter Email" required>
                 </div>
 
+                @csrf
+
                 <div class="input-tab">
                     <label for="number">Phone Number</label>
                     <input type="text" name="phoneNumber" placeholder="Enter Phone Number" required>
@@ -96,23 +98,34 @@
         $("#contact-us-form").on('submit', function(e) {
             e.preventDefault();
             const form = $(this);
+            const button = form.find('button');
             const formData = form.serialize();
 
             $.ajax({
-                url: 'functions/contactForm.php',
+                url: 'contact',
                 data: formData,
                 method: 'POST',
                 dataType: 'json',
+                beforeSend: function () {
+                    button.text('Sending...')
+                    button.append('<div class="loader"></div>')
+                },
                 success: function(response) {
                     console.log(response)
-                    if (response.success === true) {
+                    button.text('Submit')
+                    button.find('loader').remove()
+                    if (response.success) {
                         console.log(response);
+                        $("body").addClass("modalisOpen")
                         openModal();
                         closeModal();
                         $('#contact-us-form')[0].reset();
                         $('#finMod').css('left',"50%")
+                        $('#overlay').css('height',"100vh")
                         setTimeout(function() {
-                        $('#finMod').css('left', '150%')
+                            $("body").removeClass("modalisOpen")
+                            $('#finMod').css('left', '150%')
+                            $('#overlay').css('height',"0vh")
                         }, 3000)
                     }
 
@@ -125,6 +138,16 @@
                           // Display a generic error message
                           displayErrors({ error: response.error });
                       }
+                    }
+                },
+                error: function(error) {
+                    button.text('Submit')
+                    button.find('loader').remove()
+                    let errors = error.responseJSON;
+                    if(errors.errors.length < 2){
+                        displayErrors(error.message);
+                    }else {
+                        displayErrors(errors.errors)
                     }
                 }
             })
@@ -145,13 +168,13 @@
             const errorContainer = document.getElementById('errorContainer');
             errorContainer.innerHTML = '';
 
-            if (error && typeof error === 'object') {
+            if (typeof error === 'object') {
                 for (const field in error) {
                 const errorMessage = `<div class="error-message"> ${error[field]}</div>`;
                 errorContainer.innerHTML += errorMessage;
                 }
             } else {
-                const errorMessage = `<div class="error-message">${errors}</div>`;
+                const errorMessage = `<div class="error-message">${error}</div>`;
                 errorContainer.innerHTML += errorMessage;
             }
     }

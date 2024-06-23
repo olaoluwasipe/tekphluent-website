@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\ReviewController;
@@ -15,3 +16,4 @@ Route::get('/review-form', [HomeController::class, 'reviewForm']);
 
 Route::post('/interest', [InterestController::class, 'store']);
 Route::post('/review', [ReviewController::class, 'store']);
+Route::post('/contact', [ContactController::class, 'store']);

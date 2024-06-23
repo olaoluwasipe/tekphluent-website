@@ -187,6 +187,16 @@
                       }
 
                     }
+                },
+                error: function(error) {
+                    button.text('Submit')
+                    button.find('loader').remove()
+                    let errors = error.responseJSON;
+                    if(errors.errors.length < 2){
+                        displayErrors(error.message);
+                    }else {
+                        displayErrors(errors.errors)
+                    }
                 }
             })
         })
@@ -197,13 +207,13 @@
             const errorContainer = document.getElementById('errorContainer');
             errorContainer.innerHTML = '';
 
-            if (error && typeof error === 'object') {
+            if (typeof error === 'object') {
                 for (const field in error) {
                 const errorMessage = `<div class="error-message"> ${error[field]}</div>`;
                 errorContainer.innerHTML += errorMessage;
                 }
             } else {
-                const errorMessage = `<div class="error-message">${errors}</div>`;
+                const errorMessage = `<div class="error-message">${error}</div>`;
                 errorContainer.innerHTML += errorMessage;
             }
     }
