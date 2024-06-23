@@ -74,75 +74,7 @@
     @endif
 
 
-    <footer>
-
-        <div class="start">
-            <div class="logo"><img src="img/favicon.png" alt="logo"></div>
-
-            <div class="emphasis">A reputable and certified academy you can kickstart your tech career</div>
-
-            <div class="socials">
-                <a href="#" class="soci"><i class="icon fab fa-facebook-f"></i></a>
-                <a href="#" class="soci"><i class="icon fab fa-twitter"></i></a>
-                <a href="#" class="soci"><i class="icon fab fa-instagram"></i></a>
-                <a href="#" class="soci"><i class="icon fab fa-youtube"></i></a>
-            </div>
-        </div>
-
-        <div class="end">
-
-            <div class="group">
-                <div class="head">Top Courses</div>
-                <a href="prod-design.php">Product Design</a>
-                <a href="proj-mgt.php">Project Management and Business Analysis</a>
-                <a href="data-analysis.php">Data Analytics and Business Intelligence</a>
-                <a href="cybersecurity.php">Cybersecurity</a>
-            </div>
-
-            <div class="group">
-                <div class="head">Policies</div>
-                <a href="#">Payment Policy</a>
-                <a href="#">Terms and Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">FAQs</a>
-            </div>
-
-            <div class="group">
-                <div class="head">Support</div>
-                <a href="about.php">About Us</a>
-                <a href="contact.php">Contact Us</a>
-            </div>
-
-            <div class="group">
-                <div class="head">Contact Us</div>
-
-                <div class="linking">
-                    <div class="icon"><i class="fas fa-envelope"></i></div>
-                    <a href=" mailto: info.tekpluent.co.uk">info.tekpluent.co.uk</a>
-                </div>
-
-                <div class="linking">
-                    <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                    <a href="#">Chat on Whatsapp</a>
-                </div>
-
-                <div class="linking">
-                    <div class="icon"><i class="fas fa-phone"></i></div>
-                    <a href="tel:+07900400572">07900400572</a>
-                </div>
-            </div>
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- JAVASCRIPT -->
-    <!-- DEFAULT SCRIPT --><script src="main.js"></script>
-    <!-- JQUERY --><script src="plugins/jquery.min.js"></script>
-    <!-- JQUERY --><script src="plugins/fontawesome.js"></script>
-    <!-- OWL CAROUSEL --><script src="plugins/owl.carousel.min.js"></script>
+    @include('partials.footer')
 
 <script>
     /*scrolling banner*/

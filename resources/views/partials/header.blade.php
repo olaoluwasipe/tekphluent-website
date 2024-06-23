@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
 
     <!-- CSS -->
-    <!-- FONT AWESOME --><link rel="stylesheet" href="/plugins/fontawesome.css">
+    {{-- <!-- FONT AWESOME --><link rel="stylesheet" href="/plugins/fontawesome.css"> --}}
     <!-- OWL CAROUSEL --><link rel="stylesheet" href="/plugins/owl.carousel.min.css">
     <!-- OWL CAROUSEL --><link rel="stylesheet" href="/plugins/owl.theme.default.min.css">
     <!-- DEFAULT STYLESHEET --><link rel="stylesheet" href="/css/style.css">
