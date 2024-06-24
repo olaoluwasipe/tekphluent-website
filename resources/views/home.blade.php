@@ -50,7 +50,7 @@
     @if (count($reviews) > 0)
     <section class="testimonials">
         <div class="header">What Our Students Say</div>
-        <div class="owl-carousel tests owltwo owl-responsive-1200 " id="owltwo">
+        <div class="owl-carousel tests owltwo" id="owltwo">
         @foreach ($reviews as $review)
                 <div class="item testi">
                     <div class="icon"><i class="fas fa-quote-left-alt"></i></div>
