@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Interest;
 use App\Http\Requests\StoreInterestRequest;
 use App\Http\Requests\UpdateInterestRequest;
+use App\Mail\InterestMail;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class InterestController extends Controller
 {
@@ -41,6 +44,19 @@ class InterestController extends Controller
         ]);
 
         $course = Interest::create($validatedData);
+
+        $data = [
+            'fullName' => $request->input('fullName'),
+            'email' => $request->input('email'),
+            'phoneNumber' => $request->input('phoneNumber'),
+            'country' => $request->input('country'),
+            'agerange' => $request->input('agerange'),
+            'course' => Course::find($request->input('course'))->title,
+            'courseDate' => $request->input('courseDate'),
+        ];
+
+        Mail::to('contact@tekphluent.co.uk')->send(new InterestMail($data));
+
 
         if($course) {
             $message = [
