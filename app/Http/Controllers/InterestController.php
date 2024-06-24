@@ -51,7 +51,7 @@ class InterestController extends Controller
             'phoneNumber' => $request->input('phoneNumber'),
             'country' => $request->input('country'),
             'agerange' => $request->input('agerange'),
-            'course' => Course::find($request->input('course'))->title,
+            'course' => Course::find($request->input('course_id'))->title,
             'courseDate' => $request->input('courseDate'),
         ];
 
