@@ -48,7 +48,7 @@ class ContactController extends Controller
             'message' => $request->input('message'),
         ];
 
-        Mail::to('contact@tekphluent.co.uk')->send(new ContactMail($data));
+        Mail::to('forms@tekphluent.co.uk')->send(new ContactMail($data));
 
         if($course) {
             $message = [

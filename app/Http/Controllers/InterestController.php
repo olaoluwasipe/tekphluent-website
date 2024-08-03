@@ -55,7 +55,7 @@ class InterestController extends Controller
             'courseDate' => $request->input('courseDate'),
         ];
 
-        Mail::to('contact@tekphluent.co.uk')->send(new InterestMail($data));
+        Mail::to('forms@tekphluent.co.uk')->send(new InterestMail($data));
 
 
         if($course) {
