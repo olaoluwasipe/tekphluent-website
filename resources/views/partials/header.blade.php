@@ -17,7 +17,7 @@
 
     <nav class="navbar">
 
-        <a href="/" class="logo"><img src="/img/favicon.png" alt="Tekphluent logo"></a>
+        <a href="/" class="logo"><img src="/img/tekphluent-logo.png" alt="Tekphluent logo"></a>
 
         <div class="navlinks">
             <a href="/" class="active">Home</a>
