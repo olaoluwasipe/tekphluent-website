@@ -28,7 +28,7 @@
 
                     <div class="line">
                         <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                        <a href="#">Chat on whatsapp</a>
+                        <a href="https://wa.link/br498p">Chat on whatsapp</a>
                     </div>
 
                     <div class="line">

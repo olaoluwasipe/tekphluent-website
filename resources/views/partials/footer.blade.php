@@ -6,10 +6,10 @@
         <div class="emphasis">A reputable and certified academy you can kickstart your tech career</div>
 
         <div class="socials">
-            <a href="#" class="soci"><i class="icon fab fa-facebook-f"></i></a>
-            <a href="#" class="soci"><i class="icon fab fa-twitter"></i></a>
-            <a href="#" class="soci"><i class="icon fab fa-instagram"></i></a>
-            <a href="#" class="soci"><i class="icon fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61555065641028" class="soci"><i class="icon fab fa-facebook-f"></i></a>
+            <a href="https://x.com/tekphluent?t=5YrRRpXgI4n0o9i3df_bfA&s=09" class="soci"><i class="icon fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/tekphluent?igsh=MTF1NHV5ZDZyZTZkaw==" class="soci"><i class="icon fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@tek.phluent?_t=8orrM3BOSH3&_r=1" class="soci"><i class="icon fab fa-tiktok"></i></a>
         </div>
     </div>
 
@@ -49,7 +49,7 @@
 
             <div class="linking">
                 <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                <a href="#">Chat on Whatsapp</a>
+                <a href="https://wa.link/br498p">Chat on Whatsapp</a>
             </div>
 
             <div class="linking">
