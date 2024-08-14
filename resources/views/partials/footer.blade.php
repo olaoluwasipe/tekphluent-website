@@ -10,6 +10,7 @@
             <a href="https://x.com/tekphluent?t=5YrRRpXgI4n0o9i3df_bfA&s=09" class="soci"><i class="icon fab fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/tekphluent?igsh=MTF1NHV5ZDZyZTZkaw==" class="soci"><i class="icon fab fa-instagram"></i></a>
             <a href="https://www.tiktok.com/@tek.phluent?_t=8orrM3BOSH3&_r=1" class="soci"><i class="icon fab fa-tiktok"></i></a>
+            <a href="https://www.linkedin.com/company/tek-phluent/" class="soci"><i class="icon fab fa-linkedin"></i></a>
         </div>
     </div>
 
